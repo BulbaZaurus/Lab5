@@ -1,0 +1,41 @@
+<Tickets>
+  <Ticket>
+    <ID> 5623340537017090147 </ID>
+    <name> asd </name>
+    <coordinatesX> 3.0 </coordinatesX>
+    <coordinatesY> 3.0 </coordinatesY>
+    <price> 23.0 </price>
+    <comment> 2313 </comment>
+    <type> CHEAP </type>
+    <eventType> BASEBALL </eventType>
+    <eventName> sad </eventName>
+    <eventID> 2726311370274076191 </eventID>
+    <Refundable> false </Refundable>
+  </Ticket>
+  <Ticket>
+    <ID> 6976132108894971768 </ID>
+    <name> me </name>
+    <coordinatesX> 200.0 </coordinatesX>
+    <coordinatesY> 900.0 </coordinatesY>
+    <price> 56.88 </price>
+    <comment> ds </comment>
+    <type> VIP </type>
+    <eventType> EXPOSITION </eventType>
+    <eventName> Me </eventName>
+    <eventID> 1368673446279147331 </eventID>
+    <Refundable> false </Refundable>
+  </Ticket>
+  <Ticket>
+    <ID> 4309183203541696758 </ID>
+    <name> 4124 </name>
+    <coordinatesX> 5.0 </coordinatesX>
+    <coordinatesY> 5.0 </coordinatesY>
+    <price> 3242.0 </price>
+    <comment> фыв </comment>
+    <type> VIP </type>
+    <eventType> BASEBALL </eventType>
+    <eventName> sad </eventName>
+    <eventID> 3036796465306011541 </eventID>
+    <Refundable> false </Refundable>
+  </Ticket>
+</Tickets>

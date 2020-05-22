@@ -50,7 +50,7 @@ public class Main {
             try {
                 in=new Scanner(new File(sourse));
             }catch (Exception e){
-                System.out.println("Не найден файл");
+                System.out.println("Если честоно,то я не виноват.Это файлы у вас какие странные");
                 return false;
             }
         }
@@ -76,6 +76,7 @@ public class Main {
                 case "show":
                     Archive.add("show");
                     Commands.show(collection);
+                    System.out.println("Введите новую команду");
                     break;
                 case "add":
                     Archive.add("add");
@@ -117,12 +118,24 @@ public class Main {
                     break;
                 case "add_if_max":
                     Archive.add("add_if_max");
-                    Commands.add_if_max(collection, ticket);
+                    Ticket ticket1=Commands.add_if_max(collection);
+                    if(ticket1!=null)
+                        collection.add(ticket1);
+                    System.out.println("Эллемент был добавлен");
                     System.out.println("Введите новую команду");
                     break;
                 case "remove_greater":
                     Archive.add("remove_greater");
-                    Commands.remove_greater(collection, ticket);
+                    try {
+                        float price=Float.parseFloat(com[1]);
+                        collection.remove(Commands.remove_greater(price,collection));
+                        System.out.println("Успешно удалены все элементы с price больше" + price);
+                    }catch (Exception e){
+                        System.out.println("Ах как хочеться вернуться \n"
+                        +"Ах как хочеться попасть в городок \n"
+                        + "И попробовать снова");
+                    }
+
                     System.out.println("Введите новую команду");
                     break;
                 case "print_field_descending_comment":
@@ -140,8 +153,13 @@ public class Main {
                     if (com.length == 2) {
                         try {
                             Commands.filter_less_than_event(collection, Long.parseLong(com[1]));
-                        } catch (Exception e) {
+                        } catch (NullPointerException e) {
                             System.out.println("Проблемы.Проблемы-они везде");
+                            System.out.println("Ну или просто нету таких элементов");
+                        }
+                        catch (Exception e) {
+                            System.out.println("Проблемы.Проблемы-они везде");
+                            System.out.println("Ну или просто нету таких элементов");
                         }
                     } else {
                         System.out.println("Необходим ввод  значения поля event ");
@@ -182,7 +200,7 @@ public class Main {
                             pathcollection.remove(com[1]);
                         }
                     }catch (NoSuchElementException e){
-                        System.out.println("Файл поврежден");
+                        System.out.println("Конечный файл поврежден");
                         pathcollection.remove(com[1]);
                     }catch (ArrayIndexOutOfBoundsException e){
                         System.out.println("Уууууу.....страшна ,вырубай");

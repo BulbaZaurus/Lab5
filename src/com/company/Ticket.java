@@ -23,7 +23,13 @@ public class Ticket implements Comparable<Ticket> {
         this.id=GENERATEID.getNUM();
         this.name=name;
         this.coordinates=coordinates;
-        this.price=price;
+        if(price<=0){
+            System.out.println(" Товарищ,постойте у вас обнаружено значение цены меньше 0");
+            System.out.println("Высставляю минимальное значение");
+            System.out.println("Вот только теперь");
+            this.price=0.1F;
+        }else
+            this.price=price;
         this.comment=comment;
         this.refundable=refundable;
         this.type=type;
@@ -98,8 +104,8 @@ public class Ticket implements Comparable<Ticket> {
 
     @Override
     public int compareTo(Ticket o) {
-        if(this.id>o.id) return 1;
-        if(this.id<o.id)return -1;
+        if(this.price>o.price) return 1;
+        if(this.price<o.price)return -1;
         return 0;
     }
 

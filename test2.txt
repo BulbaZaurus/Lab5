@@ -1,0 +1,2 @@
+execute_script C:\Users\Алехандро\IdeaProjects\GOD_BLESS_GREAT_AMERIKA\test.txt
+show

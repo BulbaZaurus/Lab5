@@ -13,7 +13,7 @@ public class Coordinates {
             System.out.println("Неправильное значение координаты Y \n" +
                     "Выставленно минимальное значение \n" +
                     "Y=-747");
-            this.y=-749.0;
+            this.y=-747.0;
         }else
             this.y=y;
     }

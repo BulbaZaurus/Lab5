@@ -1,0 +1,41 @@
+<Tickets>
+  <Ticket>
+    <ID> 3225560433778929064 </ID>
+    <name> me </name>
+    <coordinatesX> 200.0 </coordinatesX>
+    <coordinatesY> 900.0 </coordinatesY>
+    <price> 56.88 </price>
+    <comment> ds </comment>
+    <type> VIP </type>
+    <eventType> EXPOSITION </eventType>
+    <eventName> Me </eventName>
+    <eventID> 5191122935667670854 </eventID>
+    <Refundable> false </Refundable>
+  </Ticket>
+  <Ticket>
+    <ID> 3225560433778929064 </ID>
+    <name> m34e </name>
+    <coordinatesX> 200.0 </coordinatesX>
+    <coordinatesY> 90320.0 </coordinatesY>
+    <price> 56.4488 </price>
+    <comment> ds </comment>
+    <type> VIP </type>
+    <eventType> EXPOSITION </eventType>
+    <eventName> M4e </eventName>
+    <eventID> 5191122935667670854 </eventID>
+    <Refundable> false </Refundable>
+  </Ticket>
+  <Ticket>
+    <ID> 3225560433778929064 </ID>
+    <name> me25235 </name>
+    <coordinatesX> 200252.0 </coordinatesX>
+    <coordinatesY> 900.0 </coordinatesY>
+    <price> 5532526.88 </price>
+    <comment> ds </comment>
+    <type> VIP </type>
+    <eventType> EXPOSITION </eventType>
+    <eventName> Me </eventName>
+    <eventID> 5191122935667670854 </eventID>
+    <Refundable> false </Refundable>
+  </Ticket>
+</Tickets>

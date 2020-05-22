@@ -116,6 +116,8 @@ public class FileWork {
         catch (FileNotFoundException e){
             System.out.println("Файл  для загрузки не найден");
             System.out.println("Добавьте элемент через пользовательские команды");
+        }catch (Exception e){
+            System.out.println("Экшепшоны повсюду");
         }
         return ticketTreeSet;
     }

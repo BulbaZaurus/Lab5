@@ -20,16 +20,16 @@ public class Commands {
                         "info : вывести в стандартный поток вывода информацию о коллекции (тип, дата инициализации, количество элементов и т.д.)\n" +
                         "show : вывести в стандартный поток вывода все элементы коллекции в строковом представлении\n" +
                         "add {element} : добавить новый элемент в коллекцию\n" +
-                        "update_id {element} : обновить значение элемента коллекции, id которого равен заданному\n" +
+                        "update_id {ID} : обновить значение элемента коллекции, id которого равен заданному\n" +
                         "remove_by_id id : удалить элемент из коллекции по его id\n" +
                         "clear : очистить коллекцию\n" +
                         "save : сохранить коллекцию в файл\n" +
                         "execute_script file_name : считать и исполнить скрипт из указанного файла. В скрипте содержатся команды в таком же виде, в котором их вводит пользователь в интерактивном режиме.\n" +
                         "exit :завершить программу (без сохранения в файл)\n " +
-                        "add_if_max {element} : добавить новый элемент в коллекцию, если его значение превышает значение наибольшего элемента этой коллекции\n" +
-                        "remove_greater {element} : удалить из коллекции все элементы, превышающие заданный\n" +
+                        "add_if_max  : добавить новый элемент в коллекцию, если его значение превышает значение наибольшего  price элемента этой коллекции\n" +
+                        "remove_greater  : удалить из коллекции все элементы, превышающие заданный price\n" +
                         "history : вывести последние 15 команд (без их аргументов)\n"+
-                        "filter_less_than_event event: вывести элементы, значение поля event которых меньше заданного\n"+
+                        "filter_less_than_event eventID: вывести элементы, значение поля event которых меньше заданного\n"+
                         "print_field_descending_comment : вывести значения поля comment всех элементов в порядке убывания\n" +
                         "print_field_descending_price : вывести значения поля price всех элементов в порядке убывания");
     }
@@ -134,7 +134,7 @@ public class Commands {
         if(t!=null){
             e=collection.lower(t).getEvent();
         }else{
-            System.out.println("event с таким id не был найден");
+            System.out.println("event с меньшим id не был найден");
             return;
         }
         System.out.println(e.toString());
@@ -142,25 +142,34 @@ public class Commands {
     }
     /**
      * Комманда "remove_greater"
-     * Фильтрация проиходит по id event`a
+     * Фильтрация проиходит по price
      * @param collection
-     * @param ticket
+     * @param price
      */
-    static void remove_greater(TreeSet<Ticket> collection,Ticket ticket){
+    static Ticket remove_greater(float price,TreeSet<Ticket> collection) {
+        Iterator<Ticket> iterator = collection.iterator();
+        while (iterator.hasNext()) {
+            Ticket ticket = iterator.next();
+            if (ticket.getPrice() > price) return ticket;
+        }
+        System.out.println("Price не найден");
+        return null;
+    }
+    /*static void remove_greater(TreeSet<Ticket> collection,Ticket ticket){
      try{
          collection.add(Commands.add());
-         Boolean found =collection.removeIf(x->x.getPrice()>ticket.getPrice());
+         Boolean found =collection.removeIf(x->x.getPrice()<ticket.getPrice());
          if(found){
-             System.out.println("Элементы ,Price которых больше  были удалены ");
+             System.out.println("Элементы , price которых больше  были удалены ");
          }else{
-             System.out.println("Элементов с эквивалентным Price не найдено");
-
+             System.out.println("Элементов с эквивалентным price не найдено");
          }
 
      }catch (Exception e){
          System.out.println("Ошибка при выполнение команды  ");
      }
     }
+    */
     /**
      * Комманда "add'
      */
@@ -345,9 +354,9 @@ public class Commands {
     /**
      * Комманда "add_if_max"
      * @param collection
-     * @param ticket
+
      */
-   static void add_if_max(TreeSet<Ticket> collection,Ticket ticket){
+   /*static void add_if_max(TreeSet<Ticket> collection,Ticket ticket){
 
        try{
            if(ticket.getPrice()<collection.last().getPrice() && ticket!=null){
@@ -360,6 +369,14 @@ public class Commands {
        }catch (Exception e){
            System.out.println("Все идеть по плану (нет).Произошла ошибка");
        }
+   }
+
+    */
+   static Ticket add_if_max(TreeSet<Ticket> collection){
+       Ticket ticket=add();
+       if(ticket.compareTo(collection.last())>0)
+           return ticket;
+       else return null;
    }
     /*static void save(TreeSet<Ticket> collection) throws IOException, XMLStreamException {
         String outputFileName="file.txt";
